@@ -11,9 +11,9 @@ def consultar_dados():
         conn = mysql.connector.connect(
             host='172.18.1.9',
             port=3306,
-            user='root',
-            password='c3a@2022',
-            database='openiot'
+            user='user',
+            password='pass',
+            database='bd'
         )
         cursor = conn.cursor()
 
