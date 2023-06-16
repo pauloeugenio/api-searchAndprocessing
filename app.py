@@ -11,9 +11,9 @@ def consultar_dados():
         conn = mysql.connector.connect(
             host='172.18.1.9',
             port=3306,
-            user='user',
-            password='pass',
-            database='bd'
+            user='root',
+            password='c3a@2022',
+            database='openiot'
         )
         cursor = conn.cursor()
 
@@ -28,7 +28,7 @@ def consultar_dados():
         # Gera um arquivo CSV com os dados
         with open('consulta.csv', 'w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(field_names)
+          # writer.writerow(field_names)
             writer.writerows(data)
 
         # Lê o arquivo CSV gerado
@@ -42,6 +42,7 @@ def consultar_dados():
         # Gera um novo arquivo CSV com os dados filtrados
         with open('consulta_filtrada.csv', 'w', newline='') as file:
             writer = csv.writer(file)
+          # writer.writerow(field_names)
             writer.writerows(filtered_rows)
 
 
