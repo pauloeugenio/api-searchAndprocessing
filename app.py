@@ -31,6 +31,24 @@ def consultar_dados():
             writer.writerow(field_names)
             writer.writerows(data)
 
+        # Lê o arquivo CSV gerado
+        with open('consulta.csv', 'r') as file:
+            reader = csv.reader(file)
+            rows = list(reader)
+            # Remove 50% dos dados de forma aleatória
+            random.shuffle(rows)
+            filtered_rows = rows[:int(len(rows) * 0.5)]
+
+        # Gera um novo arquivo CSV com os dados filtrados
+        with open('consulta_filtrada.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(filtered_rows)
+
+
+
+
+
+        
         cursor.close()
         conn.close()
 
